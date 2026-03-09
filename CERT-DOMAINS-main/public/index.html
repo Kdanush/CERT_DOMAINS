@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CERT-DOMAINS | SSL Scanner</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="bg-canvas"></canvas>
+    
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <span class="bracket">[</span>
+                <span class="text">CERT-DOMAINS</span>
+                <span class="bracket">]</span>
+            </div>
+            <div class="status-indicator">
+                <span class="pulse"></span> SYSTEM ACTIVE
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="scanner-section">
+                <div class="input-group">
+                    <span class="prompt">root@cert-domains:~$</span>
+                    <input type="text" id="domain-input" placeholder="Enter target domain (e.g., google.com)" autocomplete="off">
+                    <button id="scan-btn" class="cyber-btn">
+                        <span class="btn-content">INITIATE SCAN</span>
+                        <div class="glitch"></div>
+                    </button>
+                </div>
+                <div id="loader" class="loader hidden">
+                    <div class="loading-bar"></div>
+                    <div class="terminal-logs" id="terminal-logs">
+                        <p>> Establishing secure connection...</p>
+                        <p>> Handshaking...</p>
+                        <p>> retrieving certificate chain...</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="results-section" class="results-section hidden">
+                <div class="result-card">
+                    <div class="card-header">
+                        <h3>SCAN RESULTS</h3>
+                        <div class="status-badge" id="validity-badge">UNKNOWN</div>
+                    </div>
+                    
+                    <div class="grid-layout">
+                        <div class="info-block">
+                            <label>Domain</label>
+                            <span id="res-domain" class="value highlight">---</span>
+                        </div>
+                        <div class="info-block">
+                            <label>Days Remaining</label>
+                            <span id="res-days" class="value">---</span>
+                        </div>
+                        <div class="info-block full-width">
+                            <label>Issuer</label>
+                            <span id="res-issuer" class="value small-text">---</span>
+                        </div>
+                        <div class="info-block full-width">
+                            <label>Subject</label>
+                            <span id="res-subject" class="value small-text">---</span>
+                        </div>
+                        <div class="info-block">
+                            <label>Valid From</label>
+                            <span id="res-from" class="value">---</span>
+                        </div>
+                        <div class="info-block">
+                            <label>Valid To</label>
+                            <span id="res-to" class="value">---</span>
+                        </div>
+                        <div class="info-block full-width">
+                            <label>Fingerprint (SHA-1)</label>
+                            <span id="res-fingerprint" class="value mono">---</span>
+                        </div>
+                        <div class="info-block full-width">
+                            <label>Serial Number</label>
+                            <span id="res-serial" class="value mono">---</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>SECURE TRANSMISSION // ENCRYPTED CONNECTION</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
